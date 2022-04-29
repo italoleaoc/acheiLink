@@ -2,9 +2,9 @@
 ## Projeto desenvolvido por Ítalo Leão e Willians Augusto
 
 Desenvolvido em:
--Angular
--PHP Laravel
--MySql ou MariaDB
+- Angular
+- PHP Laravel
+- MySql ou MariaDB
 
 O projeto será dividido em 2 partes:
 
