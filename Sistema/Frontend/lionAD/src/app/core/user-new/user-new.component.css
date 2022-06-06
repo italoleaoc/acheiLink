@@ -1,0 +1,46 @@
+.principal {
+    padding: 0.875rem;
+    height: 100%;
+}
+
+.flex-clmnContato mat-form-field {
+    width: 70%;
+    margin-top: 0.9375rem;
+}
+
+.flex-select {
+    margin-top: 25px;
+}
+
+.up {
+    background-color: yellowgreen !important;
+    margin-right: 50%;
+}
+
+.principal {
+    margin-bottom: 1.5625rem;
+}
+
+.btnResume {
+    margin-left: 0.50rem;
+}
+
+.btnSalva {
+    background-color: rgb(62, 173, 62);
+    color: #ffffff;
+    font-size: large;
+}
+
+.resume {
+    width: 95%;
+    margin-left: 0.75rem;
+}
+
+@media screen and (max-width:600px) {
+    .up {
+        text-align: center;
+    }
+    .segRow {
+        margin-top: 0.9375rem;
+    }
+}

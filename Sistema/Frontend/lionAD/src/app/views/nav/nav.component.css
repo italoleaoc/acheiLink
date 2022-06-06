@@ -1,0 +1,63 @@
+.navegador {
+    overflow-x: hidden;
+}
+
+mat-expansion-panel {
+    background-color: #ff1800 !important;
+    width: 100%;
+    color: white;
+}
+
+mat-panel-description {
+    justify-content: end;
+}
+
+mat-divider {
+    background-color: rgb(247, 253, 253);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 3px;
+}
+
+ul {
+    list-style: none;
+}
+
+.linksNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: safe;
+    align-content: baseline;
+}
+
+.linksNav mat-icon {
+    margin-right: 5px;
+    margin-top: -0.0625rem;
+}
+
+.iconMenu {
+    color: white;
+    vertical-align: bottom;
+}
+
+.paineltitle {
+    height: 4.375rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.paineltitle img {
+    width: 20%;
+    height: auto;
+    padding-top: 0.4375rem;
+}
+
+@media screen and (max-width:1000px) {
+    .paineltitle img {
+        width: 35%;
+        height: auto;
+        padding-top: 0.4375rem;
+    }
+}

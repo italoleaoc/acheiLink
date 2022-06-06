@@ -10,6 +10,7 @@ class AgregadorLink extends Model
     protected $fillable =
         [
             'id',
+            'title_page',
             'is_active',
             'nm_link',
             'img_thumb',
@@ -25,5 +26,19 @@ class AgregadorLink extends Model
             'link_eight',
             'link_nine',
             'link_teen',
+            'colorFontButton',
+            'colorButton',
+            'colorFontTexto',
+            'name_link_one',
+            'name_link_two',
+            'name_link_tree',
+            'name_link_four',
+            'name_link_five',
+            'name_link_six',
+            'name_link_seven',
+            'name_link_eight',
+            'name_link_nine',
+            'name_link_teen',
+
         ];
 }

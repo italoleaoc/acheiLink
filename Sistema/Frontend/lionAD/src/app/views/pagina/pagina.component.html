@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-12 col-lg-2"></div>
+    <div class="col-sm-12 col-lg-8 pagina" [style.background]="item.background" *ngFor="let item of pagina">
+
+        <h2 [style.color]="item.colorFontTexto">{{item.title_page}}</h2>
+
+        <img class="img-thumbnail img-fluid mx-auto d-block" [src]='item.img_thumb | safe' alt="imagem thumb">
+        <p [style.color]="item.colorFontTexto" class="desc">{{item.desc_link}}</p>
+        <div class="displayBtn" *ngFor="let itemlink of links, index as i">
+
+            <a *ngIf="!itemlink.includes('youtube')" routerLink="{{itemlink}}" target="_blank" rel="noopener noreferrer">
+                <button [style.background]="item.colorButton" [style.color]="item.colorFontButton" *ngIf="itemlink != null || undefined" class="btnLink" mat-raised-button color="primary">
+             {{nameLinks[i]}}</button></a>
+
+            <span *ngIf="itemlink.includes('youtube')">
+            <mat-accordion>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"  [style.background]="item.colorButton" >
+                    <mat-expansion-panel-header   >
+                    <mat-panel-title >
+                      <p [style.color]="item.colorFontButton" >{{nameLinks[i]}}</p>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <youtube-player  videoId="{{itemlink.substring(itemlink.indexOf('=')+1,itemlink.lenght)}}"
+                    suggestedQuality="highres" [height]="250" [width]="250"></youtube-player>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+              </span>
+        </div>
+
+        <a [ngStyle]="{color: item.colorFontTexto}" class="linkAchei" routerLink="https://lions.achei.digital" target="_blank">Desenvolvido por Lions AD  &nbsp;<mat-icon >copyright</mat-icon>
+        </a>
+    </div>
+    <div class="col-sm-12 col-lg-2"></div>
+</div>

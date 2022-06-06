@@ -1,0 +1,12 @@
+.corpo {
+    padding: 1.5625rem;
+    height: 100%;
+}
+
+.footer {
+    display: block;
+    position: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

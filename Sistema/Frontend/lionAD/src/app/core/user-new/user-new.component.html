@@ -1,0 +1,133 @@
+<app-nav></app-nav>
+<div class="row principal">
+    <div class="col-sm-12 col-lg-2">
+        <p *ngIf="!valorId" class="text-justify">Ao se cadastrar no nosso site você estará aceitando a nossa politicas de privacidade e o nosso Termo de Uso! </p>
+    </div>
+    <div class="col-sm-12 col-lg-8">
+        <div class="">
+            <h3 class="">Usuario {{usuarioTitle || "Novo"}}</h3>
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                    <a ngbNavLink>Cadastro</a>
+                    <ng-template ngbNavContent>
+                        <form [formGroup]="usuarioForm" #usuarioFormDirective="ngForm">
+                            <div class="flex-clmn">
+                                <mat-form-field>
+                                    <mat-label>Nome Completo</mat-label>
+                                    <input required matInput type="text" formControlName="nomeCliente">
+                                </mat-form-field>
+                            </div>
+                            <div class="flex-clmn">
+                                <mat-form-field>
+                                    <mat-label>Email</mat-label>
+                                    <input required matInput type="email" formControlName="email">
+                                </mat-form-field>
+
+                                <div class="flex-clmn">
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Data de Nascimento</mat-label>
+                                        <input required matInput formControlName="dtNascimento" [matDatepicker]="picker">
+                                        <mat-hint>DD/MM/YYYY</mat-hint>
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker touchUi #picker></mat-datepicker>
+                                    </mat-form-field>
+
+                                </div>
+
+                                <div class="flex-clmn">
+
+                                    <mat-form-field>
+                                        <mat-label>Senha</mat-label>
+                                        <input required matInput type="password" formControlName="pwsd">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button color="primary" (click)="proximoContato()">Próximo</button>
+                        </form>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <a ngbNavLink>Contato</a>
+                    <ng-template ngbNavContent>
+                        <div class="row ">
+                            <div class="col-sm-12 col-lg-8 ">
+                                <form [formGroup]="contatoForm" #contatoFormDirective="ngForm">
+                                    <div class="flex-clmn">
+                                        <mat-form-field>
+                                            <mat-label>Contato</mat-label>
+                                            <input required matInput type="text" formControlName="descContato">
+                                            <mat-hint>Email, telefone, whatsapp</mat-hint>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="flex-select">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Tipo de Contato</mat-label>
+                                            <mat-select required matInput type="text" formControlName="tpContato">
+                                                <mat-option value="telefone">Telefone</mat-option>
+                                                <mat-option value="email">Email</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <button mat-raised-button color="primary" (click)="saveContato()">Confirma</button>
+                                    <button class="btnResume" mat-raised-button color="primary" (click)="resumSave()">Proximo</button>
+                                </form>
+                            </div>
+                            <div class="col-sm-12 col-lg-4" *ngIf=" tabelaContato.length >0 ">
+                                <p class="segRow">Lista de contatos</p>
+                                <table class="table">
+                                    <tr *ngFor="let item of tabelaContato,let i = index">
+                                        <td>{{item.desc_contato}}</td>
+                                        <td>{{item.tp_contato}}</td>
+                                        <td> <button mat-raised-button color="warn" (click)="deletarContatoTela(item.desc_contato, i)">Excluir</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="3">
+                    <a ngbNavLink>Resumo</a>
+                    <ng-template ngbNavContent>
+                        <div class="row resume">
+                            <table class="table">
+                                <thead>
+                                    <th>Dados Pessoais</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{usuarioForm.value['nomeCliente']}}
+                                        </td>
+                                        <td>{{usuarioForm.value['email']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{usuarioForm.value['dtNascimento'] | date}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Contato</td>
+                                        <td>Tipo de Contato</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let itemResumo of tabelaContato">
+                                        <td>{{itemResumo.desc_contato}}</td>
+                                        <td>{{itemResumo.tp_contato}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button mat-raised-button class="btnSalva" (click)="saveUser()">Salvar</button>
+
+                        </div>
+                    </ng-template>
+                </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="mt-1"></div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg"></div>
+</div>
+<app-footer></app-footer>

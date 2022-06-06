@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<div class="row principal">
+    <div class="col-sm-12 col-lg"></div>
+    <div class="col-sm-12 col-lg-8">
+        <h2>Bem vindo(a)!</h2>
+        <p class="textoPrincipal">Aqui você podera atualizar as suas informações pessoais, criar as suas páginas e editar as mesmas se for necessário!
+        </p>
+        <div class="row">
+            <div class="col novos">
+                <button class="novosbutton" mat-raised-button [routerLink]="['#/usernew/',valorId]">Editar Usuario</button>
+                <a class="novosbutton" *ngFor="let item of paginas , let i = index " mat-raised-button class="" routerLink="{{item[0].nm_link}}" title="Pagina Lions AD de {{item[0].nm_link}}" target="_blank" title="{{item[0].nm_link}}"> Compartilhar  {{item[0].nm_link || 'link'}}</a>
+            </div>
+            <app-gerenciado-link></app-gerenciado-link>
+
+        </div>
+        <div class="row"></div>
+    </div>
+    <div class="col-sm-12 col-lg"></div>
+</div>
+
+<app-footer class="footer"></app-footer>

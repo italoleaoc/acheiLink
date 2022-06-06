@@ -1,0 +1,63 @@
+.row {
+    height: 100%;
+    max-width: 103%;
+}
+
+.pagina {
+    overflow-x: hidden;
+    padding-top: 6%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.img-thumbnail {
+    border-radius: 40%;
+    width: 9.375rem;
+    margin-top: 0.9375rem;
+}
+
+.desc {
+    font-size: 1.25rem;
+    text-align: center;
+    width: 50%;
+    margin-top: 1.25rem;
+    margin-left: 25%;
+}
+
+.pagina h2 {
+    width: 85%;
+    margin-left: 10%;
+    font-size: 36px;
+    text-align: center;
+}
+
+.displayBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btnLink {
+    margin-top: 0.9375rem;
+    text-align: justify;
+    text-align-last: center;
+    width: 18.75rem;
+    white-space: normal;
+    padding: 6px 6px;
+}
+
+.linkAchei {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    margin-top: 3.125rem;
+    margin-bottom: 1.625rem;
+}

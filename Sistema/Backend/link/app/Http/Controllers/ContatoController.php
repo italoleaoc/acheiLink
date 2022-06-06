@@ -14,21 +14,16 @@ class ContatoController extends Controller
         $contato->desc_contato = $request->desc_contato;
         $contato->tp_contato = $request->tp_contato;
         $contato->save();
-        echo $contato;
         return response()->json(
-            ['Contact save with success'], 200
+            ['mensagem' => "Contato saved with success"],201
         );
     }
 
     public function updateContact(Request $request){
-        $contato =  Contato::find($request->id);
-        $contato->desc_contato = $request->desc_contato;
-        $contato->tp_contato = $request->tp_contato;
-        $contato->save();
-        echo $contato;
-        return response()->json(
-            ['Contact save with success'], 200
-        );
+        $contato =  Contato::where('desc_contato', $request->desc_contato)
+        ->where('fk_user_id', $request->fk_user_id)->get();
+
+        return response('Contato Update com Sucesso', 200);
     }
 
     public function listContact($id){
@@ -42,7 +37,8 @@ class ContatoController extends Controller
     }
 
     public function deleteContato($id){
-        $contato = Contato::destroy($id);
+        $contato = Contato::where("desc_contato",$id);
+        $contato->delete();
         if($contato == 1){
         return response('Contact deleted with success' , 202);
         }

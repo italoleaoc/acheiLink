@@ -1,0 +1,245 @@
+<div class="row up">
+    <div class="col-lg-7">
+        <h2>Configuração da Página</h2>
+        <div *ngIf="loading">
+            <form [formGroup]="formAgregador" #agregadorFormDirective="ngForm" enctype="multipart/form-data">
+                <div class="flex-clmn">
+                    <mat-form-field class="flex-clmn">
+                        <mat-label>Nome da página </mat-label>
+                        <input required matInput type="text" formControlName="nm_link">
+                    </mat-form-field>
+                </div>
+                <div class="flex-clmn">
+                    <mat-form-field class="flex-clmn">
+                        <mat-label>Titulo da Pagina</mat-label>
+                        <input required matInput type="text" formControlName="title_page" (ngModelChange)="titleChange($event)">
+                    </mat-form-field>
+                </div>
+
+                <div class="flex-clmn">
+                    <mat-form-field appearance="fill" class="flex-clmn">
+                        <mat-label>Descrição da Página</mat-label>
+                        <textarea matInput (ngModelChange)="descSiteChange($event)" formControlName="desc_link"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="flex-clmn">
+                    <mat-label>Imagem site</mat-label>
+                    <input type="file" formControlName="img_thumb" accept="image/*" class="form-control" id="inputGroupFile01" (change)="selectedFiles($event)">
+                </div>
+                <div class="cores">
+                    <mat-form-field>
+                        <label>Fundo da Página</label>
+                        <input type="text" matInput [(colorPicker)]="background" [style.background]="background" formControlName="background" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Cor Fonte Texto</label>
+                        <input type="text" matInput [(colorPicker)]="colorFontTexto" [style.background]="colorFontTexto" formControlName="colorFontTexto" />
+                    </mat-form-field>
+                </div>
+                <div class="cores">
+                    <mat-form-field>
+                        <label>Cor Fonte Botão</label>
+                        <input type="text" matInput [(colorPicker)]="colorFontButton" [style.background]="colorFontButton" formControlName="colorFontButton" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Cor do Botão</label>
+                        <input type="text" matInput [(colorPicker)]="colorButton" [style.background]="colorButton" formControlName="colorButton" />
+                    </mat-form-field>
+
+                </div>
+                <h3>Agora você ira inserir os dados dos links, precisamos do nome do link que vai ser inserido dentro do botão, e do link em si!
+
+                </h3>
+                <mat-card>
+                    <mat-card-title>Link 1</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 1</mat-label>
+                                <input required matInput type="text" formControlName="name_link_one">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 1</mat-label>
+                                <input required matInput type="text" formControlName="link_one">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 2</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 2</mat-label>
+                                <input required matInput type="text" formControlName="name_link_two">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 2</mat-label>
+                                <input required matInput type="text" formControlName="link_two">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 3</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 3</mat-label>
+                                <input required matInput type="text" formControlName="name_link_tree">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 3</mat-label>
+                                <input required matInput type="text" formControlName="link_tree">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 4</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 4</mat-label>
+                                <input required matInput type="text" formControlName="name_link_four">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 4</mat-label>
+                                <input required matInput type="text" formControlName="link_four">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 5</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 5</mat-label>
+                                <input required matInput type="text" formControlName="name_link_five">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 5</mat-label>
+                                <input required matInput type="text" formControlName="link_five">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 6</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 6</mat-label>
+                                <input required matInput type="text" formControlName="name_link_six">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 6</mat-label>
+                                <input required matInput type="text" formControlName="link_six">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 7</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 7</mat-label>
+                                <input required matInput type="text" formControlName="name_link_seven">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 7</mat-label>
+                                <input required matInput type="text" formControlName="link_seven">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 8</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 8</mat-label>
+                                <input required matInput type="text" formControlName="name_link_eight">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 8</mat-label>
+                                <input required matInput type="text" formControlName="link_eight">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 9</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 9</mat-label>
+                                <input required matInput type="text" formControlName="name_link_nine">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 9</mat-label>
+                                <input required matInput type="text" formControlName="link_nine">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card>
+                    <mat-card-title>Link 10</mat-card-title>
+                    <mat-card-subtitle>Adicionar o nome do link e o link</mat-card-subtitle>
+                    <mat-card-actions>
+                        <div class="flex-clmn">
+                            <mat-form-field>
+                                <mat-label>Nome do link 10</mat-label>
+                                <input required matInput type="text" formControlName="name_link_teen">
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Link 10</mat-label>
+                                <input required matInput type="text" formControlName="link_teen">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                <button *ngIf="!idPage" class="btnsave" mat-raised-button color="primary" (click)="save()">Confirma</button>
+                <button *ngIf="idPage" class="btnsave" mat-raised-button color="primary" (click)="atualizarPagina(idPage)">Confirmar</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <h4>Este é um exemplo serve para ajustar as cores e ver a imagem</h4>
+        <hr>
+        <br><br><br>
+        <div class="exemplo excorpo" [style.background]="background" [style.color]="colorFontTexto">
+            <h4 class="text-center">{{titleSite || "Aguardando o titulo"}}</h4>
+            <img *ngIf="imgResult" class="img-thumbnail" [src]="imgResult" alt="Imagem topo do card">
+            <img *ngIf="imagemSalva && !imgResult" class="img-thumbnail" [src]="imagemSalva  | safe" alt="Imagem topo do card">
+            <h5 class="text-center">{{descSite || "Aguardando texto"}}</h5>
+            <br><br>
+            <div>
+                <button mat-flat-button [style.background]="colorButton" [style.color]="colorFontButton"> layout dos botões</button><br>
+                <button mat-flat-button [style.background]="colorButton" [style.color]="colorFontButton"> layout dos botões</button><br>
+                <button mat-flat-button [style.background]="colorButton" [style.color]="colorFontButton"> layout dos botões</button><br>
+            </div>
+        </div>
+    </div>
+</div>

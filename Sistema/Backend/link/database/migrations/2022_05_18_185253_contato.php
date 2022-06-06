@@ -15,7 +15,7 @@ class Contato extends Migration
     {
         Schema::create('contatos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fk_user_id');
+            $table->bigInteger('fk_user_id')->unsigned();
             $table->string('desc_contato', 255);
             $table->string('tp_contato');
             $table->foreign('fk_user_id')->references('id')->on('users')->onDelete('cascade');

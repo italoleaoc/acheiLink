@@ -1,0 +1,48 @@
+<nav class="navegador">
+    <mat-accordion class="example-headers-align nav">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header class="paineltitle">
+                <mat-panel-title>
+                    <img class="figure-img img-fluid rounded" src="./../../../assets/img/logo.jpg" alt="logo lionAD">
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon class="iconMenu">menu</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <ul>
+                <li class="linksNav">
+                    <a mat-button href="#">
+                        <mat-icon>home</mat-icon>Home</a>
+
+                </li>
+                <li class="linksNav">
+                    <a *ngIf="!id" mat-button routerLink="/usernew/0">
+                        <mat-icon>person_add_alt</mat-icon>Novo Usuário</a>
+                </li>
+                <li class="linksNav">
+                    <a *ngIf="!id" mat-button routerLink="/politica">
+                        <mat-icon>policy</mat-icon>Politica de privacidade</a>
+                </li>
+                <!--
+                <li class="linksNav" *ngIf="id">
+                    <a mat-button routerLink="/dashboard">
+                        <mat-icon>assignment_ind</mat-icon> Dashboard</a>
+                </li>-->
+            </ul>
+
+            <mat-divider></mat-divider>
+
+            <div *ngIf="!id">
+                <a class="linksNav" mat-button routerLink="/login">
+                    <mat-icon>home</mat-icon>Login </a>
+            </div>
+            <div class="linksNav" *ngIf="id">
+                <button mat-button (click)="sair()"><mat-icon>logout</mat-icon>Sair</button>
+            </div>
+
+
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</nav>

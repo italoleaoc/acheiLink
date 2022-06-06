@@ -1,0 +1,9 @@
+.corpo {
+    overflow-x: hidden;
+    margin-top: 1.5625rem;
+    padding: 1.5625rem;
+}
+
+p {
+    text-align: justify;
+}

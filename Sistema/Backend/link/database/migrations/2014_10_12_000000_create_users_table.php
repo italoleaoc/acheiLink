@@ -17,12 +17,12 @@ class CreateUsersTable extends Migration
             $table->bigIncrements("id");
             $table->string('name_full');
             $table->date('dt_nascimento');
-            $table->integer("tp_count")->default(1);
-            $table->integer("is_pg_active")->default(1);
-            $table->integer("count_link")->default(0);
+            $table->integer("tp_count")->nullable();
+            $table->integer("is_pg_active")->nullable();
+            $table->integer("count_link")->nullable();
             $table->string('email');
             $table->string('password');
-            $table->integer('is_active')->default(1);
+            $table->integer('is_active')->nullable();
             $table->timestamps();
         });
     }

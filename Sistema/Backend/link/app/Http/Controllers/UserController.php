@@ -17,9 +17,11 @@ class UserController extends Controller
         */
         if (User::where("email", $request->email)->exists()) {
             return response()->json([
-                "mensage" => "Email já cadastrado"
+                "mensage" => "Email já cadastrado",
+                "id"=> 0
             ]);
         }
+
         $user = new User;
         $user->name_full = $request->name_full;
         $user->dt_nascimento = $request->dt_nascimento;
@@ -31,7 +33,7 @@ class UserController extends Controller
         $user->is_active = $request->is_active;
         $user->save();
         return response()->json(
-                ['mensagem' => "User saved with success", 200]
+                ['mensagem' => "User saved with success",  "id"=>$user->id],200
             );
 
     }
@@ -50,8 +52,21 @@ class UserController extends Controller
 
         return response()->json(['User' => $user],201 );
     }
-
+    public function procEmail(Request $request){
+        if (User::where("email", $request->email)->exists()) {
+            return response()->json([
+                "mensage" => "Email já cadastrado",
+                "id"=> 0
+            ]);
+        }
+        return response()->json([
+            "id"=> 1
+        ]);
+    }
     public function editUser(Request $request){
+      if($request->id == null){
+       return $this->saveUser($request);
+      }
         $user = User::find($request->id);
         $user->name_full = $request->name_full;
         $user->dt_nascimento = $request->dt_nascimento;
@@ -71,5 +86,13 @@ class UserController extends Controller
         return response()->json(
             ['Message'=>'Deleted with sucess'],200
         );
+    }
+
+    public function loginApi(Request $request){
+        $user = User::where('email', $request->email)->where('password', $request->password)->get();
+        if($user[0]->id){
+            return response()->json(["id"=>$user[0]->id], 200);
+        }
+            return response()->json(["id"=>401], 401);;
     }
 }

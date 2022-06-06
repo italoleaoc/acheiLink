@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Lions AD</h2>
+<mat-dialog-content class="mat-typography">
+
+    <p>
+        A Lions AD utiliza cookies para melhorar a experiência do usuário. Ao continuar, você concorda com a nossa
+        <a routerLink="politica"> Política de privacidade e Termos de uso</a>.
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceitar</button>
+</mat-dialog-actions>

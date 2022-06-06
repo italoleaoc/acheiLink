@@ -1,0 +1,28 @@
+.row {
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    color: whitesmoke;
+    padding-top: 5px;
+    padding: 0.9375rem;
+}
+
+.direito {
+    text-align: end;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+@media screen and (max-width:600px) {
+    .direito,
+    .row {
+        text-align: center;
+    }
+}

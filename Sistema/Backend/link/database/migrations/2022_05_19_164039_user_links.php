@@ -15,8 +15,8 @@ class UserLinks extends Migration
     {
         Schema::create('user_links', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fk_user_id');
-            $table->bigInteger('fk_id_agregador');
+            $table->bigInteger('fk_user_id')->unsigned();
+            $table->bigInteger('fk_id_agregador')->unsigned();
             $table->foreign('fk_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('fk_id_agregador')->references('id')->on('agregador_link')->onDelete('cascade');
 

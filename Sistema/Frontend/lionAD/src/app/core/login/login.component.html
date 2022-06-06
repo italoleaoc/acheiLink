@@ -1,0 +1,27 @@
+<app-nav></app-nav>
+<div class="row">
+    <div class="col-sm-12 col-lg"></div>
+    <div class="col-sm-12 col-lg-8 pagina">
+
+        <div class="card " style="width: 18rem;">
+            <img src="../../../assets/img/cabeçaLion.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title">Login</h4>
+                <form [formGroup]="loginForm" #loginFormDirective="ngForm" class="formulario">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input required matInput type="email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Senha</mat-label>
+                        <input required matInput type="password" formControlName="pwsd">
+                    </mat-form-field>
+                    <button (click)="verificar()" type="submit" class="btnEnviar" mat-flat-button>Enviar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-12 col-lg"></div>
+</div>
+<app-footer></app-footer>
