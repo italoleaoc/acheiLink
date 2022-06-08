@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //rotas usadas para os usuários
+
+
+Route::middleware(['cors'])->group(function () {
+
 Route::post('/newuser',[UserController::class, 'saveUser'] );
-Route::get('/alluser',[UserController::class, 'allUser'] );
+Route::get('/alluser','UserController@allUser' );
 Route::put('/edituser',[UserController::class, 'editUser'] );
 Route::get('/iduser/{id}',[UserController::class, 'idUser'] );
 Route::delete('/deleteuser/{id}',[UserController::class, 'desabilitarUsuario'] );
@@ -39,4 +43,4 @@ Route::post('/editpagina',[UserLinksController::class, 'editPage'] );
 Route::get('/procurarpagina/{id}',[UserLinksController::class, 'procurarPagina'] );
 Route::get('/paginas/{id}',[UserLinksController::class, 'paginas'] );
 Route::get('/paginaid/{id}',[UserLinksController::class, 'paginaId'] );
-
+});

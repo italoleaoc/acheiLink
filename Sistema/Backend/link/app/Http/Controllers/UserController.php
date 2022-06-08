@@ -93,6 +93,6 @@ class UserController extends Controller
         if($user[0]->id){
             return response()->json(["id"=>$user[0]->id], 200);
         }
-            return response()->json(["id"=>401], 401);;
+            return response()->json(["id"=>'401'], 401);
     }
 }

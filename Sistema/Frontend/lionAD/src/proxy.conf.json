@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://lionsapi.cf/api/loginapi/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
